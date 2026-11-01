@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Why each setting is here:
+
+  accessibilityEventTypes
+    typeWindowStateChanged : an app/activity window appeared (primary signal).
+    typeWindowsChanged     : windows added/removed/active/focus changed. Catches
+                             returns to a blocked app that produce no
+                             window-state event (notification shade closed,
+                             keyguard dismissed, split-screen, PiP).
+                             Requires flagRetrieveInteractiveWindows.
+    typeWindowContentChanged is deliberately NOT subscribed: very noisy and
+    not needed to detect a foreground change.
+
+  accessibilityFlags / canRetrieveWindowContent
+    flagRetrieveInteractiveWindows + canRetrieveWindowContent="true" let the
+    service call getWindows()/getRootInActiveWindow() to ask Android which
+    window is actually in front, instead of trusting a possibly missed or
+    stale event. FocusLock only reads the PACKAGE NAME of a window; it never
+    reads text or view content. Without this capability there is no way to
+    recover from a missed event.
+
+  notificationTimeout
+    0 = no event coalescing. The old value (100 ms) lets the framework drop
+    same-type events that arrive within 100 ms of each other, which is exactly
+    what happens when a blocked app is reopened quickly.
+
+  isAccessibilityTool is intentionally not declared: FocusLock is a
+  classroom-management tool, not an assistive technology.
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowsChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagDefault|flagRetrieveInteractiveWindows"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/accessibility_desc"
+    android:notificationTimeout="0" />

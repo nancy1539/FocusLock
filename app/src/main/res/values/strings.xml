@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">FocusLock</string>
+    <string name="accessibility_desc">FocusLock shows a focus screen over apps that are restricted: apps your teacher locked during class focus time, or apps you chose for your own focus session. It only checks which app is currently in front. It does not read, record or send what is on your screen.</string>
+
+    <!-- Personal dashboard -->
+    <string name="user_home_subtitle">Personal User Dashboard</string>
+    <string name="user_home_welcome">Welcome back</string>
+    <string name="user_home_signed_in_as">Signed in as</string>
+    <string name="user_home_email_unknown">Email not available</string>
+    <string name="user_home_logout">Log out</string>
+
+    <string name="user_home_access_title">Accessibility access</string>
+    <string name="user_home_access_ready">ON: FocusLock can restrict your selected apps.</string>
+    <string name="user_home_access_starting">Enabled, but the service is still starting. Wait a moment.</string>
+    <string name="user_home_access_off">OFF: FocusLock cannot restrict apps yet.</string>
+    <string name="user_home_access_explain">FocusLock needs Android\'s Accessibility service to notice which app is in front, so it can show the focus screen over the apps you chose. It does not read your screen content and sends nothing anywhere.</string>
+    <string name="user_home_access_button">Turn on accessibility</string>
+    <string name="user_home_access_dialog_title">Turn on FocusLock accessibility</string>
+    <string name="user_home_access_dialog_body">FocusLock uses Android\'s Accessibility service only to detect which app is currently in front, so it can cover the apps you selected with a focus screen. It does not read text or content on your screen, and nothing is sent anywhere.\n\nIn the next screen, open the list of installed or downloaded apps, choose FocusLock, and switch it on. On Android 13 or newer, an app installed outside Google Play may first need Allow restricted settings (Settings, Apps, FocusLock, three-dot menu).\n\nThen come back here and start your session.</string>
+    <string name="user_home_open_settings">Open settings</string>
+    <string name="user_home_cancel">Cancel</string>
+    <string name="user_home_settings_missing">Could not open Accessibility settings on this device. Open Android Settings and search for Accessibility.</string>
+
+    <string name="user_home_apps_title">Apps to restrict</string>
+    <string name="user_home_apps_count">Selected apps: %1$d</string>
+    <string name="user_home_apps_empty">No apps selected yet. Choose the apps you want blocked during your session.</string>
+    <string name="user_home_apps_more">+%1$d more</string>
+    <string name="user_home_apps_select">Select apps</string>
+    <string name="user_home_apps_changed">%1$d selected app(s) are no longer installed or available and were removed from your selection.</string>
+    <string name="user_home_app_unavailable">%1$s (not installed)</string>
+
+    <string name="user_home_session_title">Focus session</string>
+    <string name="user_home_status_not_started">Not Started</string>
+    <string name="user_home_status_active">Active</string>
+    <string name="user_home_status_completed">Completed</string>
+    <string name="user_home_status_other">Active (another account)</string>
+    <string name="user_home_duration_title">Session length</string>
+    <string name="user_home_chip_5">5 min</string>
+    <string name="user_home_chip_15">15 min</string>
+    <string name="user_home_chip_25">25 min</string>
+    <string name="user_home_chip_30">30 min</string>
+    <string name="user_home_chip_45">45 min</string>
+    <string name="user_home_chip_60">60 min</string>
+    <string name="user_home_chip_custom">Custom</string>
+    <string name="user_home_custom_hint">Minutes (%1$d to %2$d)</string>
+    <string name="user_home_custom_error">Enter a whole number from %1$d to %2$d minutes.</string>
+    <string name="user_home_start">Start Lock Session</string>
+    <string name="user_home_end">End session</string>
+    <string name="user_home_notice_other">A focus session started by another account is active on this device until %1$s. You can start your own once it ends.</string>
+    <string name="user_home_notice_school">A School / College focus session is active on this device. A personal session can be started after it ends.</string>
+    <string name="user_home_active_banner">FOCUS SESSION ACTIVE</string>
+    <string name="user_home_remaining">%1$s remaining</string>
+    <string name="user_home_times">Started %1$s. Ends %2$s.</string>
+    <string name="user_home_active_apps">Restricted apps (%1$d): %2$s</string>
+    <string name="user_home_active_note">Your selected apps are restricted until the session ends. FocusLock, phone calls, emergency calling and Settings stay available.</string>
+    <string name="user_home_active_warning">Accessibility is off or not running, so your selected apps are NOT being restricted right now. Turn it on to resume enforcement. Your timer keeps running.</string>
+    <string name="user_home_last_completed">Last session: completed. Started %1$s, ended %2$s (%3$d min, %4$d apps).</string>
+    <string name="user_home_last_cancelled">Last session: ended early by you. Started %1$s, ended %2$s (%3$d min planned, %4$d apps).</string>
+    <string name="user_home_history_title">Recent sessions</string>
+    <string name="user_home_history_empty">No sessions yet.</string>
+    <string name="user_home_history_line">%1$s, %2$s, %3$d min, %4$d apps</string>
+    <string name="user_home_history_completed">Completed</string>
+    <string name="user_home_history_cancelled">Ended early</string>
+
+    <string name="user_home_msg_started">Focus session started. Your selected apps are restricted until %1$s.</string>
+    <string name="user_home_msg_already">A focus session is already running.</string>
+    <string name="user_home_msg_no_apps">Select at least one app to restrict.</string>
+    <string name="user_home_msg_too_many">You can restrict at most %1$d apps per session.</string>
+    <string name="user_home_msg_bad_duration">Choose a session length from %1$d to %2$d minutes.</string>
+    <string name="user_home_msg_storage">Could not save the session on this device. Nothing was started.</string>
+    <string name="user_home_msg_signed_out">Your session has ended. Please sign in again</string>
+    <string name="user_home_msg_a11y_starting">The accessibility service is still starting. Try again in a moment.</string>
+    <string name="user_home_msg_ended">Session ended. Your apps are available again.</string>
+    <string name="user_home_msg_not_active">That session has already ended.</string>
+    <string name="user_home_msg_not_owner">This session belongs to another account and cannot be ended here.</string>
+    <string name="user_home_msg_stale">That session has changed. Please review the dashboard.</string>
+    <string name="user_home_msg_not_allowed">Ending this session early is not allowed.</string>
+    <string name="user_home_msg_end_failed">Could not end the session. Please try again.</string>
+    <string name="user_home_msg_logout_active">Logged out. Your focus session continues until %1$s.</string>
+    <string name="user_home_end_confirm_title">End this focus session?</string>
+    <string name="user_home_end_confirm_body">Your selected apps will be available again immediately.</string>
+    <string name="user_home_end_confirm_yes">End session</string>
+    <string name="user_home_end_confirm_no">Keep focusing</string>
+
+    <!-- App picker -->
+    <string name="picker_title">Choose apps to restrict</string>
+    <string name="picker_search_hint">Search apps</string>
+    <string name="picker_count">%1$d of %2$d apps selected (max %3$d)</string>
+    <string name="picker_select_all">Select all shown</string>
+    <string name="picker_clear">Clear</string>
+    <string name="picker_done">Save</string>
+    <string name="picker_empty">No apps match your search.</string>
+    <string name="picker_none_found">No apps could be listed on this device.</string>
+    <string name="picker_note">System essentials such as the phone, Settings, your launcher and keyboard are never listed.</string>
+    <string name="picker_limit">Limit of %1$d apps reached. Deselect one to choose another.</string>
+    <string name="picker_all_selected">Selected %1$d app(s).</string>
+    <string name="picker_all_limited">Selected %1$d app(s). The limit of %2$d apps was reached, so the rest were not selected.</string>
+    <string name="picker_nothing_shown">There are no apps shown to select.</string>
+    <string name="picker_removed">%1$d previously selected app(s) are no longer available and were removed.</string>
+    <string name="picker_save_failed">Could not save your selection. Please try again.</string>
+
+    <!-- Block screen -->
+    <string name="block_open_focuslock">Open FocusLock</string>
+</resources>

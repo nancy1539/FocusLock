@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register School / College"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <EditText
+            android:id="@+id/etSchoolName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="School / College name"
+            android:inputType="textCapWords"/>
+
+        <EditText
+            android:id="@+id/etSchoolCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Set School Code (4-10 letters/numbers)"
+            android:inputType="textCapCharacters"
+            android:maxLength="10"/>
+
+        <EditText
+            android:id="@+id/etTeacherPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Set Teacher password (min 6)"
+            android:inputType="textPassword"/>
+
+        <Button
+            android:id="@+id/btnRegisterSchool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Register"/>
+    </LinearLayout>
+</ScrollView>

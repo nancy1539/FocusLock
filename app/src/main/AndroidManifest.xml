@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+        Package visibility (Android 11+). No QUERY_ALL_PACKAGES: only these intent queries.
+        HOME  : find launchers so they are never blocked (existing).
+        LAUNCHER: list apps that have a launcher icon, for the Personal User app picker, and
+                  resolve their names/icons. This is a narrow, normal declaration and needs
+                  no Google Play "all packages" permission declaration.
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FocusLock">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- configChanges: rotating mid-request must not recreate the screen and orphan a
+             half-finished registration (account created, profile not yet written). -->
+        <activity
+            android:name=".UserLoginActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden" />
+        <activity android:name=".UserHomeActivity" android:exported="false" />
+        <activity android:name=".AppPickerActivity" android:exported="false" />
+        <activity android:name=".SchoolHomeActivity" android:exported="false" />
+        <activity android:name=".SchoolRegisterActivity" android:exported="false" />
+        <activity android:name=".StudentLoginActivity" android:exported="false" />
+        <activity android:name=".StudentHomeActivity" android:exported="false" />
+        <activity android:name=".TeacherLoginActivity" android:exported="false" />
+        <activity android:name=".TeacherDashboardActivity" android:exported="false" />
+        <activity android:name=".ClassActivity" android:exported="false" />
+        <!--
+            Block screen. singleTask + its own affinity => one reusable instance in its
+            own task (onNewIntent on repeat launches, no stacking, no recreate).
+            excludeFromRecents => cannot be re-entered from Recents. These do not
+            enforce the lock by themselves; BlockerService re-detects blocked apps.
+        -->
+        <activity
+            android:name=".BlockActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.example.focuslock.blocker"
+            android:excludeFromRecents="true" />
+
+        <service
+            android:name=".BlockerService"
+            android:exported="false"
+            android:label="FocusLock"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_config" />
+        </service>
+
+    </application>
+
+</manifest>
